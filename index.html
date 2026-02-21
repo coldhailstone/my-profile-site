@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="ko" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="박찬우 - 프론트엔드 개발자 포트폴리오" />
+        <title>박찬우 | 프론트엔드 개발자</title>
+
+        <!-- Tailwind CSS v3 CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['"Noto Sans KR"', 'sans-serif'],
+                            mono: ['"JetBrains Mono"', 'monospace'],
+                        },
+                    },
+                },
+            };
+        </script>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Font Awesome 6.5.0 -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        />
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- 전체 페이지 인터랙티브 배경 캔버스 -->
+        <canvas id="bg-canvas"></canvas>
+
+        <!-- ==================== NAVIGATION ==================== -->
+        <nav id="navbar">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <!-- 로고 -->
+                    <a href="#hero" class="text-xl font-bold gradient-text">박찬우</a>
+
+                    <!-- 데스크탑 메뉴 -->
+                    <div class="hidden md:flex items-center gap-8">
+                        <a href="#skills" class="nav-link">Skills</a>
+                        <a href="#projects" class="nav-link">Projects</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                        <button
+                            id="theme-toggle"
+                            class="theme-toggle-btn"
+                            aria-label="테마 전환"
+                        >
+                            <i class="fas fa-desktop"></i>
+                        </button>
+                    </div>
+
+                    <!-- 모바일: 테마 버튼 + 햄버거 -->
+                    <div class="flex items-center gap-3 md:hidden">
+                        <button
+                            id="theme-toggle-mobile"
+                            class="theme-toggle-btn"
+                            aria-label="테마 전환"
+                        >
+                            <i class="fas fa-desktop"></i>
+                        </button>
+                        <button
+                            id="menu-toggle"
+                            class="menu-toggle-btn"
+                            aria-label="메뉴 열기"
+                        >
+                            <i id="menu-icon" class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 모바일 드롭다운 메뉴 -->
+                <div id="mobile-menu" class="hidden md:hidden pb-4">
+                    <div class="mobile-menu-inner flex flex-col gap-2 pt-3">
+                        <a href="#skills" class="nav-link mobile-nav-link py-2">Skills</a>
+                        <a href="#projects" class="nav-link mobile-nav-link py-2"
+                            >Projects</a
+                        >
+                        <a href="#contact" class="nav-link mobile-nav-link py-2"
+                            >Contact</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ==================== HERO ==================== -->
+        <section id="hero" class="hero-section">
+            <div class="hero-inner max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- 왼쪽: 소개 텍스트 -->
+                <div class="hero-left">
+                    <p class="hero-greeting font-mono">안녕하세요, 저는</p>
+                    <h1 class="hero-name gradient-text">박찬우</h1>
+                    <div class="hero-typing-row">
+                        <span class="text-muted">저는&nbsp;</span>
+                        <span id="typing-text" class="text-primary font-semibold"></span>
+                        <span class="typing-cursor"></span>
+                    </div>
+                    <p class="hero-desc text-muted">
+                        사용자 경험을 최우선으로 생각하는<br />
+                        프론트엔드 개발자입니다.<br />
+                        Vue.js와 Tailwind CSS로<br />아름다운 웹을 만들어갑니다.
+                    </p>
+                    <div class="hero-email-row">
+                        <span class="hero-email-badge">
+                            <i class="fas fa-envelope mr-2"></i>cksn1993@gmail.com
+                        </span>
+                    </div>
+                    <div class="hero-social-row">
+                        <a
+                            href="mailto:cksn1993@gmail.com"
+                            class="hero-social-btn primary"
+                            title="이메일"
+                        >
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a
+                            href="https://github.com/coldhailstone"
+                            target="_blank"
+                            rel="noopener"
+                            class="hero-social-btn"
+                            title="GitHub"
+                        >
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#projects" class="hero-social-btn" title="포트폴리오">
+                            <i class="fas fa-briefcase"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 중앙: 아바타 -->
+                <div class="hero-center">
+                    <div class="avatar-container">
+                        <div class="avatar-ring ring-outer"></div>
+                        <div class="avatar-ring ring-inner"></div>
+                        <div class="avatar-circle">
+                            <i class="fas fa-user text-5xl text-white opacity-90"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 오른쪽: 플로팅 프로젝트 카드 -->
+                <div class="hero-right">
+                    <!-- 카드 1: Vue Todo Master -->
+                    <div class="hero-float-card float-1">
+                        <div class="hfc-thumb thumb-todo">
+                            <div class="todo-topbar"></div>
+                            <div class="todo-row">
+                                <span class="todo-box checked"></span>
+                                <span class="todo-item-text">컴포넌트 설계</span>
+                            </div>
+                            <div class="todo-row">
+                                <span class="todo-box checked"></span>
+                                <span class="todo-item-text">Pinia 상태관리</span>
+                            </div>
+                            <div class="todo-row">
+                                <span class="todo-box"></span>
+                                <span class="todo-item-text">배포 완료하기</span>
+                            </div>
+                        </div>
+                        <div class="hfc-footer">
+                            <i class="fas fa-diamond hfc-diamond"></i>
+                            <p class="hfc-label">Vue Todo Master</p>
+                        </div>
+                    </div>
+
+                    <!-- 카드 2: Analytics Dashboard -->
+                    <div class="hero-float-card float-2">
+                        <div class="hfc-thumb thumb-dashboard">
+                            <div class="dash-dots">
+                                <span class="dot dot-r"></span>
+                                <span class="dot dot-y"></span>
+                                <span class="dot dot-g"></span>
+                            </div>
+                            <div class="dash-chart">
+                                <div class="dash-bar" style="height: 55%"></div>
+                                <div class="dash-bar" style="height: 80%"></div>
+                                <div class="dash-bar" style="height: 45%"></div>
+                                <div class="dash-bar" style="height: 70%"></div>
+                                <div class="dash-bar" style="height: 90%"></div>
+                                <div class="dash-bar" style="height: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="hfc-footer">
+                            <i class="fas fa-diamond hfc-diamond"></i>
+                            <p class="hfc-label">Analytics Dashboard</p>
+                        </div>
+                    </div>
+
+                    <!-- 카드 3: Vue Weather App -->
+                    <div class="hero-float-card float-3">
+                        <div class="hfc-thumb thumb-weather">
+                            <i class="fas fa-sun weather-sun-icon"></i>
+                            <div class="weather-temp">24°C</div>
+                            <div class="weather-loc">맑음 · 서울</div>
+                        </div>
+                        <div class="hfc-footer">
+                            <i class="fas fa-diamond hfc-diamond"></i>
+                            <p class="hfc-label">Vue Weather App</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 스크롤 유도 화살표 -->
+            <a href="#skills" class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- ==================== SKILLS ==================== -->
+        <section id="skills" class="section-padding section-alt">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">
+                        My <span class="gradient-text">Skills</span>
+                    </h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <!-- 카테고리 카드 -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+                    <div class="skill-category-card scroll-animate">
+                        <div class="skill-cat-icon" style="color: var(--color-primary)">
+                            <i class="fas fa-code text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-4">언어</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag"
+                                ><i class="fab fa-html5 mr-1.5 text-orange-500"></i
+                                >HTML5</span
+                            >
+                            <span class="skill-tag"
+                                ><i class="fab fa-css3-alt mr-1.5 text-blue-500"></i
+                                >CSS3</span
+                            >
+                            <span class="skill-tag"
+                                ><i class="fab fa-js-square mr-1.5 text-yellow-500"></i
+                                >JavaScript</span
+                            >
+                        </div>
+                    </div>
+
+                    <div class="skill-category-card scroll-animate">
+                        <div class="skill-cat-icon" style="color: var(--color-secondary)">
+                            <i class="fas fa-layer-group text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-4">프레임워크</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag"
+                                ><i class="fab fa-vuejs mr-1.5 text-green-500"></i
+                                >Vue.js</span
+                            >
+                            <span class="skill-tag">Tailwind CSS</span>
+                            <span class="skill-tag">Pinia</span>
+                        </div>
+                    </div>
+
+                    <div
+                        class="skill-category-card scroll-animate sm:col-span-2 lg:col-span-1"
+                    >
+                        <div class="skill-cat-icon" style="color: var(--color-accent)">
+                            <i class="fas fa-tools text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-4">도구</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag"
+                                ><i class="fab fa-git-alt mr-1.5 text-red-500"></i
+                                >Git</span
+                            >
+                            <span class="skill-tag">Vite</span>
+                            <span class="skill-tag">npm</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 숙련도 바 -->
+                <div class="card mt-8 p-8 scroll-animate">
+                    <h3 class="text-lg font-semibold mb-6">숙련도</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium flex items-center gap-2">
+                                    <i class="fab fa-html5 text-orange-500"></i>HTML / CSS
+                                </span>
+                                <span class="text-muted text-sm font-mono">95%</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div
+                                    class="skill-bar"
+                                    data-width="95"
+                                    style="--bar-color: #f97316"
+                                ></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium flex items-center gap-2">
+                                    <i class="fab fa-js-square text-yellow-500"></i
+                                    >JavaScript
+                                </span>
+                                <span class="text-muted text-sm font-mono">85%</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div
+                                    class="skill-bar"
+                                    data-width="85"
+                                    style="--bar-color: #eab308"
+                                ></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium flex items-center gap-2">
+                                    <i class="fab fa-vuejs text-green-500"></i>Vue.js
+                                </span>
+                                <span class="text-muted text-sm font-mono">80%</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div
+                                    class="skill-bar"
+                                    data-width="80"
+                                    style="--bar-color: #22c55e"
+                                ></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium flex items-center gap-2">
+                                    <i class="fas fa-wind text-cyan-500"></i>Tailwind CSS
+                                </span>
+                                <span class="text-muted text-sm font-mono">90%</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div
+                                    class="skill-bar"
+                                    data-width="90"
+                                    style="--bar-color: #22d3ee"
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PROJECTS ==================== -->
+        <section id="projects" class="section-padding">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">
+                        My <span class="gradient-text">Projects</span>
+                    </h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mt-12">
+                    <!-- 프로젝트 1: Vue Todo Master -->
+                    <div class="project-card scroll-animate">
+                        <div class="project-header">
+                            <div
+                                class="project-icon"
+                                style="background: rgba(99, 102, 241, 0.15)"
+                            >
+                                <i
+                                    class="fas fa-check-circle"
+                                    style="color: #818cf8; font-size: 1.5rem"
+                                ></i>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link-btn" title="데모 보기">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a
+                                    href="https://github.com/coldhailstone"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="project-link-btn"
+                                    title="GitHub"
+                                >
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Vue Todo Master</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-5">
+                            Vue.js와 Pinia를 활용한 고급 할 일 관리 앱. 필터링, 정렬,
+                            드래그앤드롭 기능을 지원합니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="project-tag">Vue.js</span>
+                            <span class="project-tag">Pinia</span>
+                            <span class="project-tag">Tailwind</span>
+                            <span class="project-tag">Vite</span>
+                        </div>
+                    </div>
+
+                    <!-- 프로젝트 2: Vanilla JS Shopping Mall -->
+                    <div class="project-card scroll-animate">
+                        <div class="project-header">
+                            <div
+                                class="project-icon"
+                                style="background: rgba(234, 179, 8, 0.15)"
+                            >
+                                <i
+                                    class="fas fa-shopping-cart"
+                                    style="color: #facc15; font-size: 1.5rem"
+                                ></i>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link-btn" title="데모 보기">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a
+                                    href="https://github.com/coldhailstone"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="project-link-btn"
+                                    title="GitHub"
+                                >
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Vanilla JS Shopping Mall</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-5">
+                            순수 JavaScript로 구현한 쇼핑몰. Fetch API를 활용한 비동기
+                            데이터 처리와 장바구니 기능을 포함합니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">Fetch API</span>
+                        </div>
+                    </div>
+
+                    <!-- 프로젝트 3: Analytics Dashboard -->
+                    <div class="project-card scroll-animate">
+                        <div class="project-header">
+                            <div
+                                class="project-icon"
+                                style="background: rgba(34, 211, 238, 0.15)"
+                            >
+                                <i
+                                    class="fas fa-chart-bar"
+                                    style="color: #22d3ee; font-size: 1.5rem"
+                                ></i>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link-btn" title="데모 보기">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a
+                                    href="https://github.com/coldhailstone"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="project-link-btn"
+                                    title="GitHub"
+                                >
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Analytics Dashboard</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-5">
+                            Tailwind CSS와 Chart.js로 제작한 데이터 시각화 대시보드.
+                            반응형 레이아웃과 인터랙티브 차트를 제공합니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="project-tag">Tailwind CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Chart.js</span>
+                        </div>
+                    </div>
+
+                    <!-- 프로젝트 4: Vue Weather App -->
+                    <div class="project-card scroll-animate">
+                        <div class="project-header">
+                            <div
+                                class="project-icon"
+                                style="background: rgba(139, 92, 246, 0.15)"
+                            >
+                                <i
+                                    class="fas fa-cloud-sun"
+                                    style="color: #a78bfa; font-size: 1.5rem"
+                                ></i>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link-btn" title="데모 보기">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a
+                                    href="https://github.com/coldhailstone"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="project-link-btn"
+                                    title="GitHub"
+                                >
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Vue Weather App</h3>
+                        <p class="text-muted text-sm leading-relaxed mb-5">
+                            Vue.js와 Axios를 활용한 날씨 앱. REST API 연동과 부드러운 CSS
+                            애니메이션으로 날씨 정보를 표시합니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="project-tag">Vue.js</span>
+                            <span class="project-tag">Axios</span>
+                            <span class="project-tag">REST API</span>
+                            <span class="project-tag">CSS Animation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT ==================== -->
+        <section id="contact" class="section-padding section-alt">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">
+                        Get In <span class="gradient-text">Touch</span>
+                    </h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 mt-12 items-start">
+                    <!-- 연락처 정보 -->
+                    <div class="scroll-animate slide-left">
+                        <h3 class="text-2xl font-bold mb-4">함께 이야기 나눠요!</h3>
+                        <p class="text-muted mb-8 leading-relaxed">
+                            새로운 프로젝트, 협업 제안 또는 궁금한 점이 있으시면 언제든지
+                            연락주세요. 최대한 빠르게 답변드리겠습니다.
+                        </p>
+                        <div class="space-y-4">
+                            <a href="mailto:cksn1993@gmail.com" class="contact-item">
+                                <div class="contact-icon-wrap">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-muted mb-0.5">이메일</p>
+                                    <p class="font-semibold">cksn1993@gmail.com</p>
+                                </div>
+                            </a>
+                            <a
+                                href="https://github.com/coldhailstone"
+                                target="_blank"
+                                rel="noopener"
+                                class="contact-item"
+                            >
+                                <div class="contact-icon-wrap">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-muted mb-0.5">GitHub</p>
+                                    <p class="font-semibold">github.com/coldhailstone</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 연락 폼 -->
+                    <div class="card p-8 scroll-animate slide-right">
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)">
+                            <div class="mb-5">
+                                <label class="form-label" for="name">이름</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    class="form-input"
+                                    placeholder="홍길동"
+                                    required
+                                />
+                            </div>
+                            <div class="mb-5">
+                                <label class="form-label" for="email">이메일</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    class="form-input"
+                                    placeholder="example@email.com"
+                                    required
+                                />
+                            </div>
+                            <div class="mb-6">
+                                <label class="form-label" for="message">메시지</label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="5"
+                                    class="form-input"
+                                    style="resize: none"
+                                    placeholder="안녕하세요! 협업 제안드리고 싶습니다..."
+                                    required
+                                ></textarea>
+                            </div>
+                            <button
+                                type="submit"
+                                class="btn-primary w-full justify-center"
+                            >
+                                <i class="fas fa-paper-plane mr-2"></i>메시지 보내기
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FOOTER ==================== -->
+        <footer class="site-footer">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="text-center md:text-left">
+                        <p class="gradient-text font-bold text-lg mb-1">박찬우</p>
+                        <p class="text-muted text-sm">
+                            © <span id="current-year"></span> 박찬우. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <a
+                            href="mailto:cksn1993@gmail.com"
+                            class="social-link"
+                            title="이메일"
+                        >
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a
+                            href="https://github.com/coldhailstone"
+                            target="_blank"
+                            rel="noopener"
+                            class="social-link"
+                            title="GitHub"
+                        >
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
