@@ -287,8 +287,12 @@ body {
     font-size: clamp(2.8rem, 6vw, 4.5rem);
     font-weight: 900;
     line-height: 1;
-    margin: 0 0 1rem 0;
+    margin: 0;
     letter-spacing: -0.02em;
+}
+
+.hero-name-row {
+    margin-bottom: 1.5rem;
 }
 
 .hero-typing-row {
@@ -1248,24 +1252,27 @@ body {
         width: 100%;
         justify-content: center;
     }
+    .hero-name-row {
+        justify-content: center;
+    }
     .avatar-container {
-        width: 260px;
-        height: 260px;
+        width: 300px;
+        height: 300px;
     }
     .avatar-circle {
         width: 220px;
         height: 220px;
     }
     .ring-outer {
-        width: 245px;
-        height: 245px;
-        margin-top: -122.5px;
-        margin-left: -122.5px;
+        width: 290px;
+        height: 290px;
+        margin-top: -145px;
+        margin-left: -145px;
     }
     .ring-inner {
-        width: 220px;
-        height: 220px;
-        margin-top: -110px;
-        margin-left: -110px;
+        width: 260px;
+        height: 260px;
+        margin-top: -130px;
+        margin-left: -130px;
     }
 }
