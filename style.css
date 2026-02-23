@@ -1396,10 +1396,8 @@ body {
     translate: 0 0;
 }
 
-@media (hover: hover) {
-    .scroll-top-btn:hover {
-        translate: 0 -4px;
-        box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
-        background: var(--color-accent);
-    }
+.scroll-top-btn:hover {
+    translate: 0 -4px;
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+    background: var(--color-accent);
 }
