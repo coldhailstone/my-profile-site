@@ -146,6 +146,174 @@ const skillObs = new IntersectionObserver(
 document.querySelectorAll('.skill-bar').forEach((bar) => skillObs.observe(bar));
 
 /* ============================================
+   DATA & 컨텐츠 렌더링
+   ============================================ */
+const DATA = {
+    career: [
+        {
+            org: '프리랜서',
+            role: '삼성생명 ITO · 대리',
+            period: '2024.01 ~ 현재',
+            status: '재직중',
+            tags: ['웹 개발자'],
+            isActive: true,
+        },
+        {
+            org: '주식회사 스마트잭',
+            role: '프로덕트운영팀 · 연구원',
+            period: '2022.04 ~ 2023.04',
+            status: '1년 1개월',
+            tags: ['프론트엔드 개발자'],
+            isActive: false,
+        },
+        {
+            org: '주식회사 위컴즈',
+            role: '연구개발팀 · 주임연구원',
+            period: '2017.11 ~ 2021.07',
+            status: '3년 9개월',
+            tags: ['웹 개발자'],
+            isActive: false,
+        },
+        {
+            org: '주식회사 엔피니티7',
+            role: '개발팀 · 팀원',
+            period: '2016.11 ~ 2017.04',
+            status: '6개월',
+            tags: ['클라이언트 개발자', 'Unity'],
+            isActive: false,
+        },
+    ],
+    projects: [
+        {
+            title: "찬우박's Blog",
+            desc: 'Jekyll과 Minimal Mistakes 테마로 제작한 기술 블로그. 알고리즘 문제 풀이와 개발 관련 글을 기록합니다.',
+            tags: ['Jekyll', 'Minimal Mistakes', 'GitHub Pages'],
+            links: {
+                demo: 'https://coldhailstone.github.io/',
+                github: 'https://github.com/coldhailstone/coldhailstone.github.io',
+            },
+            icon: 'fa-blog',
+            iconBg: 'rgba(99, 102, 241, 0.15)',
+            iconColor: '#6366f1',
+        },
+        {
+            title: '중개사닷컴',
+            desc: 'Vue 3와 Firebase를 활용한 부동산 매물·고객 관리 서비스. TypeScript 기반으로 안정적인 데이터 관리를 제공합니다.',
+            tags: ['Vue.js', 'TypeScript', 'Firebase'],
+            links: {
+                demo: 'https://joongaesa.web.app/',
+                github: 'https://github.com/coldhailstone/joongaesa',
+            },
+            icon: 'fa-building',
+            iconBg: 'rgba(16, 185, 129, 0.15)',
+            iconColor: '#10b981',
+        },
+    ],
+    certs: [
+        {
+            name: 'SQLD (SQL 개발자)',
+            org: '한국데이터산업진흥원',
+            date: '2025.12',
+        },
+        {
+            name: 'ADsP (데이터분석 준전문가)',
+            org: '한국데이터산업진흥원',
+            date: '2025.09',
+        },
+        {
+            name: '정보처리기사',
+            org: '한국산업인력공단',
+            date: '2024.06',
+        },
+    ],
+};
+
+function renderProjects() {
+    const container = document.getElementById('project-list');
+    if (!container) return;
+    container.innerHTML = DATA.projects
+        .map(
+            (p) => `
+        <div class="project-card scroll-animate">
+            <div class="project-header">
+                <div class="project-icon" style="background: ${p.iconBg}">
+                    <i class="fas ${p.icon} " style="color: ${p.iconColor}; font-size: 1.5rem"></i>
+                </div>
+                <div class="project-links">
+                    ${
+                        p.links.demo
+                            ? `<a href="${p.links.demo}" target="_blank" rel="noopener" class="project-link-btn" title="데모 보기"><i class="fas fa-external-link-alt"></i></a>`
+                            : ''
+                    }
+                    ${
+                        p.links.github
+                            ? `<a href="${p.links.github}" target="_blank" rel="noopener" class="project-link-btn" title="GitHub"><i class="fab fa-github"></i></a>`
+                            : ''
+                    }
+                </div>
+            </div>
+            <h3 class="text-xl font-bold mb-2">${p.title}</h3>
+            <p class="text-muted text-sm leading-relaxed mb-5">${p.desc}</p>
+            <div class="flex flex-wrap gap-2 mt-auto">
+                ${p.tags.map((tag) => `<span class="project-tag">${tag}</span>`).join('')}
+            </div>
+        </div>
+    `
+        )
+        .join('');
+}
+
+function renderCareer() {
+    const container = document.getElementById('career-timeline');
+    if (!container) return;
+    container.innerHTML = DATA.career
+        .map(
+            (c) => `
+        <div class="timeline-item scroll-animate">
+            <div class="timeline-dot ${c.isActive ? 'active' : ''}"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <div>
+                        <h3 class="timeline-org">${c.org}</h3>
+                        <p class="timeline-role">${c.role}</p>
+                    </div>
+                    <span class="timeline-status ${c.isActive ? 'active' : 'ended'}">${c.status}</span>
+                </div>
+                <p class="timeline-period">
+                    <i class="fas fa-calendar-alt mr-1.5"></i>${c.period}
+                </p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                    ${c.tags.map((tag) => `<span class="timeline-tag">${tag}</span>`).join('')}
+                </div>
+            </div>
+        </div>
+    `
+        )
+        .join('');
+}
+
+function renderCertifications() {
+    const container = document.getElementById('cert-list');
+    if (!container) return;
+    container.innerHTML = DATA.certs
+        .map(
+            (c) => `
+        <div class="cert-item scroll-animate">
+            <div class="cert-icon-wrap">
+                <i class="fas fa-certificate"></i>
+            </div>
+            <div class="flex-1">
+                <p class="font-semibold mb-0.5">${c.name}</p>
+                <p class="text-sm text-muted">${c.org}</p>
+            </div>
+            <span class="cert-date">${c.date}</span>
+        </div>
+    `
+        )
+        .join('');
+}
+
+/* ============================================
    현재 연도
    ============================================ */
 document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -153,31 +321,57 @@ document.getElementById('current-year').textContent = new Date().getFullYear();
 /* ============================================
    히어로 스탯 카드 동적 계산
    ============================================ */
-(function updateStats() {
-    // 경력 연차: timeline-period에서 가장 이른 YYYY.MM 추출
-    let earliestYear = Infinity;
-    document.querySelectorAll('.timeline-period').forEach((el) => {
-        const match = el.textContent.match(/(\d{4})\.\d{2}/g);
-        if (match) {
-            match.forEach((dateStr) => {
-                const year = parseInt(dateStr.split('.')[0], 10);
-                if (year < earliestYear) earliestYear = year;
-            });
+function updateStats() {
+    const now = new Date();
+    let totalMonths = 0;
+
+    DATA.career.forEach((c) => {
+        const parts = c.period.split('~').map((p) => p.trim());
+        const startMatch = parts[0].match(/(\d{4})\.(\d{2})/);
+        if (!startMatch) return;
+
+        const startYear = parseInt(startMatch[1], 10);
+        const startMonth = parseInt(startMatch[2], 10);
+
+        let endYear, endMonth;
+        if (parts[1] === '현재') {
+            endYear = now.getFullYear();
+            endMonth = now.getMonth() + 1;
+        } else {
+            const endMatch = parts[1].match(/(\d{4})\.(\d{2})/);
+            if (endMatch) {
+                endYear = parseInt(endMatch[1], 10);
+                endMonth = parseInt(endMatch[2], 10);
+            } else {
+                return;
+            }
         }
+
+        // 월 단위 차이 계산 (시작월과 종료월 포함을 위해 +1)
+        const diff = (endYear - startYear) * 12 + (endMonth - startMonth) + 1;
+        totalMonths += Math.max(0, diff);
     });
-    if (earliestYear !== Infinity) {
-        const years = new Date().getFullYear() - earliestYear;
-        document.getElementById('stat-career').textContent = years + '+';
-    }
+
+    const years = Math.floor(totalMonths / 12);
+    document.getElementById('stat-career').textContent = years + '+';
 
     // 프로젝트 수
-    const projectCount = document.querySelectorAll('.project-card').length;
-    document.getElementById('stat-projects').textContent = projectCount + '+';
+    document.getElementById('stat-projects').textContent = DATA.projects.length;
 
     // 자격증 수
-    const certCount = document.querySelectorAll('.cert-item').length;
-    document.getElementById('stat-certs').textContent = certCount;
-})();
+    document.getElementById('stat-certs').textContent = DATA.certs.length;
+}
+
+// 초기화
+document.addEventListener('DOMContentLoaded', () => {
+    renderProjects();
+    renderCareer();
+    renderCertifications();
+    updateStats();
+
+    // IntersectionObserver 재설정 (동적 생성된 요소 감시)
+    document.querySelectorAll('.scroll-animate').forEach((el) => scrollObs.observe(el));
+});
 
 /* ============================================
    연락 폼
