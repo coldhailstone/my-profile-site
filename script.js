@@ -163,6 +163,10 @@ const DATA = {
             status: '재직중',
             tags: ['웹 개발자'],
             isActive: true,
+            projects: [
+                { name: '보험료 계산 시스템 리뉴얼', period: '2024.06 ~ 현재', skills: ['Vue.js', 'TypeScript', 'Vuetify'] },
+                { name: '고객 포털 UI 개선', period: '2024.01 ~ 2024.05', skills: ['Vue.js', 'JavaScript', 'SCSS'] },
+            ],
         },
         {
             org: '주식회사 스마트잭',
@@ -171,6 +175,10 @@ const DATA = {
             status: '1년 1개월',
             tags: ['프론트엔드 개발자'],
             isActive: false,
+            projects: [
+                { name: '관리자 대시보드 개발', period: '2022.10 ~ 2023.04', skills: ['React', 'TypeScript', 'Ant Design'] },
+                { name: '모바일 웹 앱 개발', period: '2022.04 ~ 2022.09', skills: ['React', 'JavaScript', 'Styled Components'] },
+            ],
         },
         {
             org: '주식회사 위컴즈',
@@ -179,6 +187,11 @@ const DATA = {
             status: '3년 9개월',
             tags: ['웹 개발자'],
             isActive: false,
+            projects: [
+                { name: '스마트팩토리 모니터링 시스템', period: '2020.03 ~ 2021.07', skills: ['Vue.js', 'JavaScript', 'Chart.js'] },
+                { name: '물류 관리 ERP 시스템', period: '2018.07 ~ 2020.02', skills: ['jQuery', 'Java', 'Spring'] },
+                { name: '사내 인트라넷 구축', period: '2017.11 ~ 2018.06', skills: ['HTML', 'CSS', 'JavaScript'] },
+            ],
         },
         {
             org: '주식회사 엔피니티7',
@@ -187,6 +200,9 @@ const DATA = {
             status: '6개월',
             tags: ['클라이언트 개발자', 'Unity'],
             isActive: false,
+            projects: [
+                { name: '모바일 캐주얼 게임 개발', period: '2016.11 ~ 2017.04', skills: ['Unity', 'C#', 'Firebase'] },
+            ],
         },
     ],
     projects: [
@@ -274,7 +290,7 @@ function renderCareer() {
     if (!container) return;
     container.innerHTML = DATA.career
         .map(
-            (c) => `
+            (c, i) => `
         <div class="timeline-item scroll-animate">
             <div class="timeline-dot ${c.isActive ? 'active' : ''}"></div>
             <div class="timeline-content">
@@ -291,11 +307,60 @@ function renderCareer() {
                 <div class="flex flex-wrap gap-2 mt-3">
                     ${c.tags.map((tag) => `<span class="timeline-tag">${tag}</span>`).join('')}
                 </div>
+                ${
+                    c.projects && c.projects.length > 0
+                        ? `
+                <button class="timeline-toggle" data-career-idx="${i}">
+                    <span>프로젝트 더보기</span>
+                    <i class="fas fa-chevron-down timeline-toggle-icon"></i>
+                </button>
+                <div class="timeline-details">
+                    <div class="timeline-details-inner">
+                        ${c.projects
+                            .map(
+                                (p) => `
+                        <div class="timeline-project">
+                            <h4 class="timeline-project-name">${p.name}</h4>
+                            <p class="timeline-project-period"><i class="fas fa-calendar-alt mr-1"></i>${p.period}</p>
+                            <div class="flex flex-wrap gap-1.5 mt-2">
+                                ${p.skills.map((s) => `<span class="timeline-project-skill">${s}</span>`).join('')}
+                            </div>
+                        </div>
+                        `
+                            )
+                            .join('')}
+                    </div>
+                </div>`
+                        : ''
+                }
             </div>
         </div>
     `
         )
         .join('');
+
+    container.querySelectorAll('.timeline-toggle').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const details = btn.nextElementSibling;
+            const icon = btn.querySelector('.timeline-toggle-icon');
+            const isExpanded = details.classList.contains('expanded');
+
+            if (isExpanded) {
+                details.style.maxHeight = details.scrollHeight + 'px';
+                requestAnimationFrame(() => {
+                    details.style.maxHeight = '0';
+                });
+                details.classList.remove('expanded');
+                icon.classList.remove('rotated');
+                btn.querySelector('span').textContent = '프로젝트 더보기';
+            } else {
+                details.classList.add('expanded');
+                details.style.maxHeight = details.scrollHeight + 'px';
+                icon.classList.add('rotated');
+                btn.querySelector('span').textContent = '프로젝트 접기';
+            }
+        });
+    });
 }
 
 function renderCertifications() {
