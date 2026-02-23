@@ -48,7 +48,7 @@
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16">
                     <!-- 로고 -->
-                    <a href="#hero" class="text-xl font-bold gradient-text">박찬우</a>
+                    <a href="#hero" class="text-xl font-bold gradient-text">포트폴리오</a>
 
                     <!-- 데스크탑 메뉴 -->
                     <div class="hidden md:flex items-center gap-8">
@@ -121,9 +121,12 @@
                         <span class="typing-cursor"></span>
                     </div>
                     <p class="hero-desc text-muted">
-                        사용자 경험을 최우선으로 생각하는<br />
-                        프론트엔드 개발자입니다.<br />
-                        Vue.js와 Tailwind CSS로<br />아름다운 웹을 만들어갑니다.
+                        Vue.js 기반의 프론트엔드 개발을 해왔고,<br />
+                        여러 도메인의 실사용 웹 서비스를 개발해왔습니다.<br /><br />
+
+                        주로 프론트엔드 위주로 담당해왔지만,<br />
+                        SI/SM 환경에서 백엔드 연계와 운영까지 함께 경험하며 현업
+                        요구사항을 실제 서비스로 풀어내는 개발에 강점이 있습니다.
                     </p>
                     <div class="hero-email-row">
                         <span class="hero-email-badge">
@@ -156,69 +159,43 @@
                         <div class="avatar-ring ring-outer"></div>
                         <div class="avatar-ring ring-inner"></div>
                         <div class="avatar-circle">
-                            <i class="fas fa-user text-5xl text-white opacity-90"></i>
+                            <img src="img/profile.JPG" alt="박찬우 프로필 사진" />
                         </div>
                     </div>
                 </div>
 
-                <!-- 오른쪽: 플로팅 프로젝트 카드 -->
+                <!-- 오른쪽: 경력 요약 스탯 카드 -->
                 <div class="hero-right">
-                    <!-- 카드 1: Vue Todo Master -->
+                    <!-- 카드 1: 경력 연차 -->
                     <div class="hero-float-card float-1">
-                        <div class="hfc-thumb thumb-todo">
-                            <div class="todo-topbar"></div>
-                            <div class="todo-row">
-                                <span class="todo-box checked"></span>
-                                <span class="todo-item-text">컴포넌트 설계</span>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-briefcase"></i>
                             </div>
-                            <div class="todo-row">
-                                <span class="todo-box checked"></span>
-                                <span class="todo-item-text">Pinia 상태관리</span>
-                            </div>
-                            <div class="todo-row">
-                                <span class="todo-box"></span>
-                                <span class="todo-item-text">배포 완료하기</span>
-                            </div>
-                        </div>
-                        <div class="hfc-footer">
-                            <i class="fas fa-diamond hfc-diamond"></i>
-                            <p class="hfc-label">Vue Todo Master</p>
+                            <div class="stat-number" id="stat-career">-</div>
+                            <div class="stat-label">연차</div>
                         </div>
                     </div>
 
-                    <!-- 카드 2: Analytics Dashboard -->
+                    <!-- 카드 2: 프로젝트 -->
                     <div class="hero-float-card float-2">
-                        <div class="hfc-thumb thumb-dashboard">
-                            <div class="dash-dots">
-                                <span class="dot dot-r"></span>
-                                <span class="dot dot-y"></span>
-                                <span class="dot dot-g"></span>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-code"></i>
                             </div>
-                            <div class="dash-chart">
-                                <div class="dash-bar" style="height: 55%"></div>
-                                <div class="dash-bar" style="height: 80%"></div>
-                                <div class="dash-bar" style="height: 45%"></div>
-                                <div class="dash-bar" style="height: 70%"></div>
-                                <div class="dash-bar" style="height: 90%"></div>
-                                <div class="dash-bar" style="height: 60%"></div>
-                            </div>
-                        </div>
-                        <div class="hfc-footer">
-                            <i class="fas fa-diamond hfc-diamond"></i>
-                            <p class="hfc-label">Analytics Dashboard</p>
+                            <div class="stat-number" id="stat-projects">-</div>
+                            <div class="stat-label">개인 프로젝트</div>
                         </div>
                     </div>
 
-                    <!-- 카드 3: Vue Weather App -->
+                    <!-- 카드 3: 자격증 -->
                     <div class="hero-float-card float-3">
-                        <div class="hfc-thumb thumb-weather">
-                            <i class="fas fa-sun weather-sun-icon"></i>
-                            <div class="weather-temp">24°C</div>
-                            <div class="weather-loc">맑음 · 서울</div>
-                        </div>
-                        <div class="hfc-footer">
-                            <i class="fas fa-diamond hfc-diamond"></i>
-                            <p class="hfc-label">Vue Weather App</p>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="stat-number" id="stat-certs">-</div>
+                            <div class="stat-label">자격증</div>
                         </div>
                     </div>
                 </div>
@@ -496,7 +473,7 @@
                                 <i class="fas fa-calendar-alt mr-1.5"></i>2024.01 ~ 현재
                             </p>
                             <div class="flex flex-wrap gap-2 mt-3">
-                                <span class="timeline-tag">웹개발자</span>
+                                <span class="timeline-tag">웹 개발자</span>
                             </div>
                         </div>
                     </div>
@@ -538,7 +515,7 @@
                                 2021.07
                             </p>
                             <div class="flex flex-wrap gap-2 mt-3">
-                                <span class="timeline-tag">웹개발자</span>
+                                <span class="timeline-tag">웹 개발자</span>
                             </div>
                         </div>
                     </div>
@@ -603,7 +580,7 @@
                         <div class="timeline-content">
                             <div class="timeline-header">
                                 <div>
-                                    <h3 class="timeline-org">영진전문대학교 (복현)</h3>
+                                    <h3 class="timeline-org">영진전문대학교</h3>
                                     <p class="timeline-role">컴퓨터정보계열</p>
                                 </div>
                                 <span class="timeline-status ended">졸업</span>
