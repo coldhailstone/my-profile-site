@@ -75,11 +75,17 @@ runTyping();
    Nav 스크롤 효과
    ============================================ */
 const navbar = document.getElementById('navbar');
+const scrollTopBtn = document.getElementById('scroll-top-btn');
 function handleNavScroll() {
     navbar.classList.toggle('nav-scrolled', window.scrollY > 60);
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
 }
 window.addEventListener('scroll', handleNavScroll, { passive: true });
 handleNavScroll();
+
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
 /* ============================================
    모바일 메뉴 토글
