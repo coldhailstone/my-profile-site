@@ -52,9 +52,12 @@
 
                     <!-- 데스크탑 메뉴 -->
                     <div class="hidden md:flex items-center gap-8">
-                        <a href="#skills" class="nav-link">Skills</a>
-                        <a href="#projects" class="nav-link">Projects</a>
-                        <a href="#contact" class="nav-link">Contact</a>
+                        <a href="#skills" class="nav-link">기술</a>
+                        <a href="#projects" class="nav-link">프로젝트</a>
+                        <a href="#career" class="nav-link">경력</a>
+                        <a href="#education" class="nav-link">학력</a>
+                        <a href="#certifications" class="nav-link">자격증</a>
+                        <a href="#contact" class="nav-link">연락처</a>
                         <button
                             id="theme-toggle"
                             class="theme-toggle-btn"
@@ -86,12 +89,19 @@
                 <!-- 모바일 드롭다운 메뉴 -->
                 <div id="mobile-menu" class="hidden md:hidden pb-4">
                     <div class="mobile-menu-inner flex flex-col gap-2 pt-3">
-                        <a href="#skills" class="nav-link mobile-nav-link py-2">Skills</a>
+                        <a href="#skills" class="nav-link mobile-nav-link py-2">기술</a>
                         <a href="#projects" class="nav-link mobile-nav-link py-2"
-                            >Projects</a
+                            >프로젝트</a
+                        >
+                        <a href="#career" class="nav-link mobile-nav-link py-2">경력</a>
+                        <a href="#education" class="nav-link mobile-nav-link py-2"
+                            >학력</a
+                        >
+                        <a href="#certifications" class="nav-link mobile-nav-link py-2"
+                            >자격증</a
                         >
                         <a href="#contact" class="nav-link mobile-nav-link py-2"
-                            >Contact</a
+                            >연락처</a
                         >
                     </div>
                 </div>
@@ -228,7 +238,7 @@
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="section-header scroll-animate">
                     <h2 class="section-title">
-                        My <span class="gradient-text">Skills</span>
+                        <span class="gradient-text">기술</span>
                     </h2>
                     <div class="section-divider"></div>
                 </div>
@@ -364,13 +374,13 @@
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="section-header scroll-animate">
                     <h2 class="section-title">
-                        My <span class="gradient-text">Projects</span>
+                        <span class="gradient-text">프로젝트</span>
                     </h2>
                     <div class="section-divider"></div>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6 mt-12">
-                    <!-- 프로젝트 1: Vue Todo Master -->
+                    <!-- 프로젝트 1: 찬우박's Blog -->
                     <div class="project-card scroll-animate">
                         <div class="project-header">
                             <div
@@ -378,16 +388,22 @@
                                 style="background: rgba(99, 102, 241, 0.15)"
                             >
                                 <i
-                                    class="fas fa-check-circle"
-                                    style="color: #818cf8; font-size: 1.5rem"
+                                    class="fas fa-blog"
+                                    style="color: #6366f1; font-size: 1.5rem"
                                 ></i>
                             </div>
                             <div class="project-links">
-                                <a href="#" class="project-link-btn" title="데모 보기">
+                                <a
+                                    href="https://coldhailstone.github.io/"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="project-link-btn"
+                                    title="데모 보기"
+                                >
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
                                 <a
-                                    href="https://github.com/coldhailstone"
+                                    href="https://github.com/coldhailstone/coldhailstone.github.io"
                                     target="_blank"
                                     rel="noopener"
                                     class="project-link-btn"
@@ -397,139 +413,19 @@
                                 </a>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">Vue Todo Master</h3>
+                        <h3 class="text-xl font-bold mb-2">찬우박's Blog</h3>
                         <p class="text-muted text-sm leading-relaxed mb-5">
-                            Vue.js와 Pinia를 활용한 고급 할 일 관리 앱. 필터링, 정렬,
-                            드래그앤드롭 기능을 지원합니다.
+                            Jekyll과 Minimal Mistakes 테마로 제작한 기술 블로그. 알고리즘
+                            문제 풀이와 개발 관련 글을 기록합니다.
                         </p>
                         <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="project-tag">Vue.js</span>
-                            <span class="project-tag">Pinia</span>
-                            <span class="project-tag">Tailwind</span>
-                            <span class="project-tag">Vite</span>
+                            <span class="project-tag">Jekyll</span>
+                            <span class="project-tag">Minimal Mistakes</span>
+                            <span class="project-tag">GitHub Pages</span>
                         </div>
                     </div>
 
-                    <!-- 프로젝트 2: Vanilla JS Shopping Mall -->
-                    <div class="project-card scroll-animate">
-                        <div class="project-header">
-                            <div
-                                class="project-icon"
-                                style="background: rgba(234, 179, 8, 0.15)"
-                            >
-                                <i
-                                    class="fas fa-shopping-cart"
-                                    style="color: #facc15; font-size: 1.5rem"
-                                ></i>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link-btn" title="데모 보기">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a
-                                    href="https://github.com/coldhailstone"
-                                    target="_blank"
-                                    rel="noopener"
-                                    class="project-link-btn"
-                                    title="GitHub"
-                                >
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Vanilla JS Shopping Mall</h3>
-                        <p class="text-muted text-sm leading-relaxed mb-5">
-                            순수 JavaScript로 구현한 쇼핑몰. Fetch API를 활용한 비동기
-                            데이터 처리와 장바구니 기능을 포함합니다.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">HTML5</span>
-                            <span class="project-tag">CSS3</span>
-                            <span class="project-tag">Fetch API</span>
-                        </div>
-                    </div>
-
-                    <!-- 프로젝트 3: Analytics Dashboard -->
-                    <div class="project-card scroll-animate">
-                        <div class="project-header">
-                            <div
-                                class="project-icon"
-                                style="background: rgba(34, 211, 238, 0.15)"
-                            >
-                                <i
-                                    class="fas fa-chart-bar"
-                                    style="color: #22d3ee; font-size: 1.5rem"
-                                ></i>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link-btn" title="데모 보기">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a
-                                    href="https://github.com/coldhailstone"
-                                    target="_blank"
-                                    rel="noopener"
-                                    class="project-link-btn"
-                                    title="GitHub"
-                                >
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Analytics Dashboard</h3>
-                        <p class="text-muted text-sm leading-relaxed mb-5">
-                            Tailwind CSS와 Chart.js로 제작한 데이터 시각화 대시보드.
-                            반응형 레이아웃과 인터랙티브 차트를 제공합니다.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="project-tag">Tailwind CSS</span>
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">Chart.js</span>
-                        </div>
-                    </div>
-
-                    <!-- 프로젝트 4: Vue Weather App -->
-                    <div class="project-card scroll-animate">
-                        <div class="project-header">
-                            <div
-                                class="project-icon"
-                                style="background: rgba(139, 92, 246, 0.15)"
-                            >
-                                <i
-                                    class="fas fa-cloud-sun"
-                                    style="color: #a78bfa; font-size: 1.5rem"
-                                ></i>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link-btn" title="데모 보기">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a
-                                    href="https://github.com/coldhailstone"
-                                    target="_blank"
-                                    rel="noopener"
-                                    class="project-link-btn"
-                                    title="GitHub"
-                                >
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Vue Weather App</h3>
-                        <p class="text-muted text-sm leading-relaxed mb-5">
-                            Vue.js와 Axios를 활용한 날씨 앱. REST API 연동과 부드러운 CSS
-                            애니메이션으로 날씨 정보를 표시합니다.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="project-tag">Vue.js</span>
-                            <span class="project-tag">Axios</span>
-                            <span class="project-tag">REST API</span>
-                            <span class="project-tag">CSS Animation</span>
-                        </div>
-                    </div>
-
-                    <!-- 프로젝트 5: 중개사닷컴 -->
+                    <!-- 프로젝트 2: 중개사닷컴 -->
                     <div class="project-card scroll-animate">
                         <div class="project-header">
                             <div
@@ -577,12 +473,229 @@
             </div>
         </section>
 
+        <!-- ==================== CAREER ==================== -->
+        <section id="career" class="section-padding section-alt">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">
+                        <span class="gradient-text">경력</span>
+                    </h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="timeline mt-12">
+                    <!-- 프리랜서 -->
+                    <div class="timeline-item scroll-animate">
+                        <div class="timeline-dot active"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div>
+                                    <h3 class="timeline-org">프리랜서</h3>
+                                    <p class="timeline-role">삼성생명 ITO · 대리</p>
+                                </div>
+                                <span class="timeline-status active">재직중</span>
+                            </div>
+                            <p class="timeline-period">
+                                <i class="fas fa-calendar-alt mr-1.5"></i>2024.01 ~ 현재
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="timeline-tag">웹개발자</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 스마트잭 -->
+                    <div class="timeline-item scroll-animate">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div>
+                                    <h3 class="timeline-org">주식회사 스마트잭</h3>
+                                    <p class="timeline-role">프로덕트운영팀 · 연구원</p>
+                                </div>
+                                <span class="timeline-status ended">1년 1개월</span>
+                            </div>
+                            <p class="timeline-period">
+                                <i class="fas fa-calendar-alt mr-1.5"></i>2022.04 ~
+                                2023.04
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="timeline-tag">프론트엔드 개발자</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 위컴즈 -->
+                    <div class="timeline-item scroll-animate">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div>
+                                    <h3 class="timeline-org">주식회사 위컴즈</h3>
+                                    <p class="timeline-role">연구개발팀 · 주임연구원</p>
+                                </div>
+                                <span class="timeline-status ended">3년 9개월</span>
+                            </div>
+                            <p class="timeline-period">
+                                <i class="fas fa-calendar-alt mr-1.5"></i>2017.11 ~
+                                2021.07
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="timeline-tag">웹개발자</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 엔피니티7 -->
+                    <div class="timeline-item scroll-animate">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div>
+                                    <h3 class="timeline-org">주식회사 엔피니티7</h3>
+                                    <p class="timeline-role">개발팀 · 팀원</p>
+                                </div>
+                                <span class="timeline-status ended">6개월</span>
+                            </div>
+                            <p class="timeline-period">
+                                <i class="fas fa-calendar-alt mr-1.5"></i>2016.11 ~
+                                2017.04
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="timeline-tag">클라이언트 개발자</span>
+                                <span class="timeline-tag">Unity</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== EDUCATION ==================== -->
+        <section id="education" class="section-padding">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">
+                        <span class="gradient-text">학력</span>
+                    </h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="timeline mt-12">
+                    <!-- 학점은행제 -->
+                    <div class="timeline-item scroll-animate">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div>
+                                    <h3 class="timeline-org">학점은행제</h3>
+                                    <p class="timeline-role">컴퓨터공학과</p>
+                                </div>
+                                <span class="timeline-status ended">졸업</span>
+                            </div>
+                            <p class="timeline-period">
+                                <i class="fas fa-calendar-alt mr-1.5"></i>2024.01 ~
+                                2024.08
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 영진전문대학교 -->
+                    <div class="timeline-item scroll-animate">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div>
+                                    <h3 class="timeline-org">영진전문대학교 (복현)</h3>
+                                    <p class="timeline-role">컴퓨터정보계열</p>
+                                </div>
+                                <span class="timeline-status ended">졸업</span>
+                            </div>
+                            <p class="timeline-period">
+                                <i class="fas fa-calendar-alt mr-1.5"></i>2012.03 ~
+                                2017.02
+                            </p>
+                            <p class="timeline-gpa">
+                                <i class="fas fa-star mr-1.5"></i>학점 4.0 / 4.5
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 경일고등학교 -->
+                    <div class="timeline-item scroll-animate">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div>
+                                    <h3 class="timeline-org">경일고등학교</h3>
+                                </div>
+                                <span class="timeline-status ended">졸업</span>
+                            </div>
+                            <p class="timeline-period">
+                                <i class="fas fa-calendar-alt mr-1.5"></i>2012
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CERTIFICATIONS ==================== -->
+        <section id="certifications" class="section-padding section-alt">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">
+                        <span class="gradient-text">자격증</span>
+                    </h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="space-y-4 mt-12 max-w-2xl mx-auto">
+                    <!-- SQLD -->
+                    <div class="cert-item scroll-animate">
+                        <div class="cert-icon-wrap">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold mb-0.5">SQLD (SQL 개발자)</p>
+                            <p class="text-sm text-muted">한국데이터산업진흥원</p>
+                        </div>
+                        <span class="cert-date">2025.12</span>
+                    </div>
+
+                    <!-- ADsP -->
+                    <div class="cert-item scroll-animate">
+                        <div class="cert-icon-wrap">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold mb-0.5">ADsP (데이터분석 준전문가)</p>
+                            <p class="text-sm text-muted">한국데이터산업진흥원</p>
+                        </div>
+                        <span class="cert-date">2025.09</span>
+                    </div>
+
+                    <!-- 정보처리기사 -->
+                    <div class="cert-item scroll-animate">
+                        <div class="cert-icon-wrap">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold mb-0.5">정보처리기사</p>
+                            <p class="text-sm text-muted">한국산업인력공단</p>
+                        </div>
+                        <span class="cert-date">2024.06</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ==================== CONTACT ==================== -->
         <section id="contact" class="section-padding section-alt">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="section-header scroll-animate">
                     <h2 class="section-title">
-                        Get In <span class="gradient-text">Touch</span>
+                        <span class="gradient-text">연락처</span>
                     </h2>
                     <div class="section-divider"></div>
                 </div>
@@ -592,8 +705,8 @@
                     <div class="scroll-animate slide-left">
                         <h3 class="text-2xl font-bold mb-4">함께 이야기 나눠요!</h3>
                         <p class="text-muted mb-8 leading-relaxed">
-                            새로운 프로젝트, 협업 제안 또는 궁금한 점이 있으시면 언제든지
-                            연락주세요. 최대한 빠르게 답변드리겠습니다.
+                            궁금한 점이 있으시면 언제든지 연락주세요. 최대한 빠르게
+                            답변드리겠습니다.
                         </p>
                         <div class="space-y-4">
                             <a href="mailto:cksn1993@gmail.com" class="contact-item">
@@ -655,7 +768,7 @@
                                     rows="5"
                                     class="form-input"
                                     style="resize: none"
-                                    placeholder="안녕하세요! 협업 제안드리고 싶습니다..."
+                                    placeholder="안녕하세요!"
                                     required
                                 ></textarea>
                             </div>
