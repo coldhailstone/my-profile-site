@@ -6,6 +6,28 @@
         <meta name="description" content="박찬우 - 프론트엔드 개발자 포트폴리오" />
         <title>박찬우 | 개발자</title>
 
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="박찬우 | 개발자" />
+        <meta property="og:description" content="박찬우 - 프론트엔드 개발자 포트폴리오" />
+        <meta
+            property="og:image"
+            content="https://pcw-profile.vercel.app/img/thumbnail.png"
+        />
+        <meta property="og:url" content="https://pcw-profile.vercel.app/" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="박찬우 | 개발자" />
+        <meta
+            name="twitter:description"
+            content="박찬우 - 프론트엔드 개발자 포트폴리오"
+        />
+        <meta
+            name="twitter:image"
+            content="https://pcw-profile.vercel.app/img/thumbnail.png"
+        />
+
         <!-- Tailwind CSS v3 CDN -->
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
@@ -46,10 +68,7 @@
         <!-- ==================== NAVIGATION ==================== -->
         <nav id="navbar">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16">
-                    <!-- 로고 -->
-                    <a href="#hero" class="text-xl font-bold gradient-text">포트폴리오</a>
-
+                <div class="flex items-center justify-end h-16">
                     <!-- 데스크탑 메뉴 -->
                     <div class="hidden md:flex items-center gap-8">
                         <a href="#skills" class="nav-link">기술</a>
@@ -463,7 +482,7 @@
         </section>
 
         <!-- ==================== CONTACT ==================== -->
-        <section id="contact" class="section-padding section-alt">
+        <section id="contact" class="section-padding">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="section-header scroll-animate">
                     <h2 class="section-title">
@@ -475,7 +494,7 @@
                 <div class="grid md:grid-cols-2 gap-12 mt-12 items-start">
                     <!-- 연락처 정보 -->
                     <div class="scroll-animate slide-left">
-                        <h3 class="text-2xl font-bold mb-4">함께 이야기 나눠요!</h3>
+                        <h3 class="text-2xl font-bold mb-4">감사합니다.</h3>
                         <p class="text-muted mb-8 leading-relaxed">
                             궁금한 점이 있으시면 언제든지 연락주세요. 최대한 빠르게
                             답변드리겠습니다.
@@ -566,27 +585,14 @@
                             © <span id="current-year"></span> 박찬우. All rights reserved.
                         </p>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <a
-                            href="mailto:cksn1993@gmail.com"
-                            class="social-link"
-                            title="이메일"
-                        >
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a
-                            href="https://github.com/coldhailstone"
-                            target="_blank"
-                            rel="noopener"
-                            class="social-link"
-                            title="GitHub"
-                        >
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
         </footer>
+
+        <!-- Scroll to Top -->
+        <button id="scroll-top-btn" class="scroll-top-btn" aria-label="맨 위로 이동">
+            <i class="fas fa-chevron-up"></i>
+        </button>
 
         <script src="script.js"></script>
     </body>

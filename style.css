@@ -14,7 +14,7 @@
 
     /* 섹션 반투명 배경 (캔버스가 비쳐 보이도록) */
     --color-section: rgba(242, 244, 248, 0.4);
-    --color-section-alt: rgba(255, 255, 255, 0.82);
+    --color-section-alt: rgba(255, 255, 255, 0.6);
 
     /* 멀티레이어 소프트 섀도우 */
     --shadow-xs: 0 1px 4px rgba(0, 0, 0, 0.06);
@@ -41,7 +41,7 @@
     --color-nav-bg: rgba(8, 13, 26, 0.95);
 
     --color-section: rgba(8, 13, 26, 0.4);
-    --color-section-alt: rgba(15, 24, 41, 0.82);
+    --color-section-alt: rgba(15, 24, 41, 0.4);
 
     --shadow-xs: 0 1px 4px rgba(0, 0, 0, 0.4);
     --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.28);
@@ -1071,6 +1071,91 @@ body {
     margin: 0.4rem 0 0;
 }
 
+/* 더보기 버튼 */
+.timeline-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    padding: 0.6rem 0 0;
+    margin-top: 0.75rem;
+    border: none;
+    border-top: 1px solid var(--color-border);
+    background: transparent;
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.timeline-toggle:hover {
+    opacity: 0.75;
+}
+
+.timeline-toggle-icon {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.timeline-toggle-icon.rotated {
+    transform: rotate(180deg);
+}
+
+/* 펼침 영역 */
+.timeline-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.timeline-details-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.75rem 0 0.25rem;
+}
+
+/* 프로젝트 항목 */
+.timeline-project {
+    padding: 0.6rem 0.75rem;
+    border-left: 2px solid var(--color-primary);
+    background: rgba(79, 70, 229, 0.04);
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.dark .timeline-project {
+    background: rgba(99, 102, 241, 0.06);
+}
+
+.timeline-project-name {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.2rem;
+}
+
+.timeline-project-period {
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--color-accent);
+}
+
+.timeline-project-skill {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--color-primary);
+    border-radius: 0.3rem;
+}
+
+.dark .timeline-project-skill {
+    background: rgba(99, 102, 241, 0.15);
+}
+
 /* ============================================
    Certifications
    ============================================ */
@@ -1274,5 +1359,43 @@ body {
         height: 260px;
         margin-top: -130px;
         margin-left: -130px;
+    }
+}
+
+/* ============================================
+   Scroll to Top 버튼
+   ============================================ */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 50;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    translate: 0 1rem;
+    transition: opacity 0.3s ease, translate 0.3s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.scroll-top-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+    translate: 0 0;
+}
+
+@media (hover: hover) {
+    .scroll-top-btn:hover {
+        translate: 0 -4px;
+        box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+        background: var(--color-accent);
     }
 }
