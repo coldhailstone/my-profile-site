@@ -135,23 +135,6 @@ const scrollObs = new IntersectionObserver(
 document.querySelectorAll('.scroll-animate').forEach((el) => scrollObs.observe(el));
 
 /* ============================================
-   스킬 바 애니메이션
-   ============================================ */
-const skillObs = new IntersectionObserver(
-    (entries) =>
-        entries.forEach((e) => {
-            if (e.isIntersecting) {
-                setTimeout(() => {
-                    e.target.style.width = e.target.dataset.width + '%';
-                }, 150);
-                skillObs.unobserve(e.target);
-            }
-        }),
-    { threshold: 0.5 }
-);
-document.querySelectorAll('.skill-bar').forEach((bar) => skillObs.observe(bar));
-
-/* ============================================
    DATA & 컨텐츠 렌더링
    ============================================ */
 const DATA = {
