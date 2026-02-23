@@ -219,6 +219,15 @@ body {
     background: rgba(79, 70, 229, 0.08);
 }
 
+#mobile-menu {
+    background: var(--color-nav-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--color-border);
+    margin: 0 -1rem;
+    padding: 0 1rem;
+}
+
 .mobile-menu-inner {
     border-top: 1px solid var(--color-border);
 }
@@ -387,7 +396,10 @@ body {
     overflow: hidden;
     width: 200px;
     box-shadow: var(--shadow-card);
-    cursor: default;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
     transition:
         box-shadow 0.3s ease,
         border-color 0.3s ease;
@@ -522,8 +534,9 @@ body {
         grid-template-columns: 1fr;
         justify-items: center;
         text-align: center;
-        gap: 2rem;
+        gap: 2.5rem;
         padding-top: 6rem;
+        padding-bottom: 6rem;
     }
     .hero-left {
         order: 2;
@@ -534,7 +547,19 @@ body {
         order: 1;
     }
     .hero-right {
-        display: none;
+        order: 3;
+        align-items: center;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .hero-float-card {
+        width: 160px;
+        margin-right: 0 !important;
+        animation: none !important;
+        transform: none !important;
     }
     .hero-desc {
         max-width: 100%;
