@@ -164,8 +164,16 @@ const DATA = {
             tags: ['웹 개발자'],
             isActive: true,
             projects: [
-                { name: '보험료 계산 시스템 리뉴얼', period: '2024.06 ~ 현재', skills: ['Vue.js', 'TypeScript', 'Vuetify'] },
-                { name: '고객 포털 UI 개선', period: '2024.01 ~ 2024.05', skills: ['Vue.js', 'JavaScript', 'SCSS'] },
+                {
+                    name: '보험료 계산 시스템 리뉴얼',
+                    period: '2024.06 ~ 현재',
+                    skills: ['Vue.js', 'TypeScript', 'Vuetify'],
+                },
+                {
+                    name: '고객 포털 UI 개선',
+                    period: '2024.01 ~ 2024.05',
+                    skills: ['Vue.js', 'JavaScript', 'SCSS'],
+                },
             ],
         },
         {
@@ -176,8 +184,16 @@ const DATA = {
             tags: ['프론트엔드 개발자'],
             isActive: false,
             projects: [
-                { name: '관리자 대시보드 개발', period: '2022.10 ~ 2023.04', skills: ['React', 'TypeScript', 'Ant Design'] },
-                { name: '모바일 웹 앱 개발', period: '2022.04 ~ 2022.09', skills: ['React', 'JavaScript', 'Styled Components'] },
+                {
+                    name: '관리자 대시보드 개발',
+                    period: '2022.10 ~ 2023.04',
+                    skills: ['React', 'TypeScript', 'Ant Design'],
+                },
+                {
+                    name: '모바일 웹 앱 개발',
+                    period: '2022.04 ~ 2022.09',
+                    skills: ['React', 'JavaScript', 'Styled Components'],
+                },
             ],
         },
         {
@@ -188,9 +204,21 @@ const DATA = {
             tags: ['웹 개발자'],
             isActive: false,
             projects: [
-                { name: '스마트팩토리 모니터링 시스템', period: '2020.03 ~ 2021.07', skills: ['Vue.js', 'JavaScript', 'Chart.js'] },
-                { name: '물류 관리 ERP 시스템', period: '2018.07 ~ 2020.02', skills: ['jQuery', 'Java', 'Spring'] },
-                { name: '사내 인트라넷 구축', period: '2017.11 ~ 2018.06', skills: ['HTML', 'CSS', 'JavaScript'] },
+                {
+                    name: '스마트팩토리 모니터링 시스템',
+                    period: '2020.03 ~ 2021.07',
+                    skills: ['Vue.js', 'JavaScript', 'Chart.js'],
+                },
+                {
+                    name: '물류 관리 ERP 시스템',
+                    period: '2018.07 ~ 2020.02',
+                    skills: ['jQuery', 'Java', 'Spring'],
+                },
+                {
+                    name: '사내 인트라넷 구축',
+                    period: '2017.11 ~ 2018.06',
+                    skills: ['HTML', 'CSS', 'JavaScript'],
+                },
             ],
         },
         {
@@ -198,10 +226,14 @@ const DATA = {
             role: '개발팀 · 팀원',
             period: '2016.11 ~ 2017.04',
             status: '6개월',
-            tags: ['클라이언트 개발자', 'Unity'],
+            tags: ['클라이언트 개발자'],
             isActive: false,
             projects: [
-                { name: '모바일 캐주얼 게임 개발', period: '2016.11 ~ 2017.04', skills: ['Unity', 'C#', 'Firebase'] },
+                {
+                    name: '모바일 캐주얼 게임 개발',
+                    period: '2016.11 ~ 2017.04',
+                    skills: ['Unity', 'C#', 'Firebase'],
+                },
             ],
         },
     ],
