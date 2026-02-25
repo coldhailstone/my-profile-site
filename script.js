@@ -516,13 +516,7 @@ function renderCareer() {
                             <p class="timeline-project-period"><i class="fas fa-calendar-alt mr-1"></i>${p.period}</p>
                             <div class="flex flex-wrap gap-1.5 mt-2">
                                 ${p.skills
-                                    .map((s) => {
-                                        const skill = SKILLS[s];
-                                        const iconHtml = skill
-                                            ? `<i class="${skill.icon} mr-1" style="color:${skill.color}"></i>`
-                                            : '';
-                                        return `<span class="timeline-project-skill">${iconHtml}${s}</span>`;
-                                    })
+                                    .map((s) => `<span class="timeline-project-skill">${s}</span>`)
                                     .join('')}
                             </div>
                         </div>

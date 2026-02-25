@@ -1,0 +1,8 @@
+{
+    "permissions": {
+        "allow": ["Bash"],
+        "deny": [],
+        "defaultMode": "plan"
+    },
+    "outputStyle": "Explantory"
+}
