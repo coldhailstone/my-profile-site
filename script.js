@@ -137,6 +137,104 @@ document.querySelectorAll('.scroll-animate').forEach((el) => scrollObs.observe(e
 /* ============================================
    DATA & 컨텐츠 렌더링
    ============================================ */
+const SKILLS = {
+    // 언어
+    HTML: { icon: 'fab fa-html5', color: '#e34f26' },
+    CSS: { icon: 'fab fa-css3-alt', color: '#1572b6' },
+    JavaScript: { icon: 'fab fa-js', color: '#f7df1e' },
+    Java: { icon: 'fab fa-java', color: '#007396' },
+    'C#': { icon: 'fas fa-code', color: '#68217a' },
+    // 프론트엔드
+    'Vue.js': { icon: 'fab fa-vuejs', color: '#4fc08d' },
+    Vuex: { icon: 'fas fa-layer-group', color: '#42b883' },
+    React: { icon: 'fab fa-react', color: '#61dafb' },
+    'React Native': { icon: 'fab fa-react', color: '#61dafb' },
+    Bootstrap: { icon: 'fab fa-bootstrap', color: '#7952b3' },
+    JQuery: { icon: 'fas fa-dollar-sign', color: '#0769ad' },
+    'Tailwind CSS': { icon: 'fas fa-wind', color: '#06b6d4' },
+    SCSS: { icon: 'fab fa-sass', color: '#cc6699' },
+    // 백엔드
+    Spring: { icon: 'fas fa-leaf', color: '#6db33f' },
+    'Spring Boot': { icon: 'fas fa-leaf', color: '#6db33f' },
+    JPA: { icon: 'fas fa-database', color: '#59666c' },
+    Anyframe: { icon: 'fas fa-cube', color: '#4a90d9' },
+    Firebase: { icon: 'fas fa-fire', color: '#ffca28' },
+    // DB
+    Oracle: { icon: 'fas fa-database', color: '#f80000' },
+    MariaDB: { icon: 'fas fa-database', color: '#003545' },
+    MySQL: { icon: 'fas fa-database', color: '#4479a1' },
+    // 도구
+    Git: { icon: 'fab fa-git-alt', color: '#f05032' },
+    SVN: { icon: 'fas fa-code-branch', color: '#809cc9' },
+    npm: { icon: 'fab fa-npm', color: '#cb3837' },
+    Webpack: { icon: 'fas fa-box', color: '#8dd6f9' },
+    Jira: { icon: 'fab fa-jira', color: '#0052cc' },
+    Figma: { icon: 'fab fa-figma', color: '#f24e1e' },
+    Jenkins: { icon: 'fab fa-jenkins', color: '#d24939' },
+    Sparrow: { icon: 'fas fa-shield-alt', color: '#2e7d32' },
+    'Claude Code': { icon: 'fas fa-robot', color: '#cc785c' },
+    // 기타 (프로젝트 전용)
+    TypeScript: { icon: 'fas fa-code', color: '#3178c6' },
+    'Minimal Mistakes': { icon: 'fas fa-palette', color: '#e95420' },
+    'GitHub Pages': { icon: 'fab fa-github', color: '#333333' },
+    Unity: { icon: 'fas fa-cube', color: '#000000' },
+    MiPlatform: { icon: 'fas fa-desktop', color: '#0078d4' },
+};
+
+const SKILL_CATEGORIES = [
+    {
+        name: '언어',
+        icon: 'fas fa-code',
+        color: 'var(--color-primary)',
+        skills: ['HTML', 'CSS', 'JavaScript', 'Java', 'C#'],
+    },
+    {
+        name: '프론트엔드',
+        icon: 'fas fa-desktop',
+        color: 'var(--color-secondary)',
+        skills: [
+            'Vue.js',
+            'Vuex',
+            'React',
+            'React Native',
+            'JQuery',
+            'Bootstrap',
+            'Tailwind CSS',
+            'SCSS',
+        ],
+    },
+    {
+        name: '백엔드',
+        icon: 'fas fa-server',
+        color: 'var(--color-accent)',
+        skills: ['Spring', 'Spring Boot', 'JPA', 'Anyframe', 'Firebase'],
+    },
+    {
+        name: '데이터베이스',
+        icon: 'fas fa-database',
+        color: 'var(--color-primary)',
+        skills: ['Oracle', 'MySQL', 'MariaDB'],
+    },
+    {
+        name: '도구',
+        icon: 'fas fa-tools',
+        color: 'var(--color-secondary)',
+        skills: [
+            'Claude Code',
+            'npm',
+            'Git',
+            'SVN',
+            'Webpack',
+            'Jira',
+            'Figma',
+            'Jenkins',
+            'Sparrow',
+            'Unity',
+            'MiPlatform',
+        ],
+    },
+];
+
 const DATA = {
     career: [
         {
@@ -310,6 +408,32 @@ const DATA = {
     ],
 };
 
+function renderSkills() {
+    const container = document.getElementById('skill-list');
+    if (!container) return;
+    container.innerHTML = SKILL_CATEGORIES.map(
+        (cat) => `
+        <div class="skill-category-card scroll-animate">
+            <div class="skill-cat-icon" style="color: ${cat.color}">
+                <i class="${cat.icon} text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-semibold mb-4">${cat.name}</h3>
+            <div class="flex flex-wrap gap-2">
+                ${cat.skills
+                    .map((name) => {
+                        const skill = SKILLS[name];
+                        const iconHtml = skill
+                            ? `<i class="${skill.icon} mr-1.5" style="color:${skill.color}"></i>`
+                            : '';
+                        return `<span class="skill-tag">${iconHtml}${name}</span>`;
+                    })
+                    .join('')}
+            </div>
+        </div>
+    `
+    ).join('');
+}
+
 function renderProjects() {
     const container = document.getElementById('project-list');
     if (!container) return;
@@ -337,7 +461,15 @@ function renderProjects() {
             <h3 class="text-xl font-bold mb-2">${p.title}</h3>
             <p class="text-muted text-sm leading-relaxed mb-5">${p.desc}</p>
             <div class="flex flex-wrap gap-2 mt-auto">
-                ${p.tags.map((tag) => `<span class="project-tag">${tag}</span>`).join('')}
+                ${p.tags
+                    .map((tag) => {
+                        const skill = SKILLS[tag];
+                        const iconHtml = skill
+                            ? `<i class="${skill.icon} mr-1" style="color:${skill.color}"></i>`
+                            : '';
+                        return `<span class="project-tag">${iconHtml}${tag}</span>`;
+                    })
+                    .join('')}
             </div>
         </div>
     `
@@ -383,7 +515,15 @@ function renderCareer() {
                             <h4 class="timeline-project-name">${p.name}</h4>
                             <p class="timeline-project-period"><i class="fas fa-calendar-alt mr-1"></i>${p.period}</p>
                             <div class="flex flex-wrap gap-1.5 mt-2">
-                                ${p.skills.map((s) => `<span class="timeline-project-skill">${s}</span>`).join('')}
+                                ${p.skills
+                                    .map((s) => {
+                                        const skill = SKILLS[s];
+                                        const iconHtml = skill
+                                            ? `<i class="${skill.icon} mr-1" style="color:${skill.color}"></i>`
+                                            : '';
+                                        return `<span class="timeline-project-skill">${iconHtml}${s}</span>`;
+                                    })
+                                    .join('')}
                             </div>
                         </div>
                         `
@@ -495,6 +635,7 @@ function updateStats() {
 
 // 초기화
 document.addEventListener('DOMContentLoaded', () => {
+    renderSkills();
     renderProjects();
     renderCareer();
     renderCertifications();
