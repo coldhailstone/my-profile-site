@@ -4,5 +4,6 @@
         "deny": [],
         "defaultMode": "plan"
     },
-    "outputStyle": "Explantory"
+    "outputStyle": "Explantory",
+    "language": "korean"
 }
