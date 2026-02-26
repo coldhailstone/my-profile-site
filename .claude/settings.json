@@ -1,6 +1,6 @@
 {
     "permissions": {
-        "allow": ["Bash"],
+        "allow": ["Bash", "mcp__context7"],
         "deny": [],
         "defaultMode": "plan"
     },
